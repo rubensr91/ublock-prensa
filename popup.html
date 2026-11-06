@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <style>
+    body { font: 13px/1.4 system-ui, sans-serif; width: 260px; margin: 0; padding: 14px; color: #111; }
+    h1 { font-size: 14px; margin: 0 0 2px; }
+    .sub { font-size: 11px; color: #666; margin-bottom: 10px; }
+    label { display: flex; align-items: center; gap: 8px; padding: 5px 0; cursor: pointer; }
+    hr { border: 0; border-top: 1px solid #e5e5e5; margin: 10px 0; }
+    button { width: 100%; margin-top: 8px; padding: 8px; border: 1px solid #016ca2; background: #016ca2; color: #fff; border-radius: 4px; cursor: pointer; font: inherit; }
+    button.secondary { background: #fff; color: #016ca2; }
+    button:hover { opacity: .85; }
+    #status { margin-top: 8px; font-size: 11px; color: #666; min-height: 14px; }
+  </style>
+</head>
+<body>
+  <h1>Unlock prensa</h1>
+  <div class="sub">Quita el muro de cliente; el texto sigue viniendo del servidor.</div>
+
+  <label><input type="checkbox" data-setting="enabled" /> <strong>Activo</strong></label>
+  <hr />
+  <div id="sites"></div>
+  <hr />
+  <button id="reset" class="secondary">Resetear contadores de esta pestaña</button>
+  <button id="reload">Recargar pestaña</button>
+  <div id="status"></div>
+
+  <script src="sites.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

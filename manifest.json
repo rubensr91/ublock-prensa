@@ -1,0 +1,69 @@
+{
+  "manifest_version": 3,
+  "name": "Unlock prensa",
+  "version": "2.0.0",
+  "minimum_chrome_version": "111",
+  "description": "Quita muros de pago de cliente (contadores y modales) en El País, El Mundo, ABC, La Vanguardia y El Confidencial.",
+  "permissions": ["storage", "declarativeNetRequest", "scripting"],
+  "declarative_net_request": {
+    "rule_resources": [
+      { "id": "elpais", "enabled": true, "path": "rules/elpais.json" },
+      { "id": "elmundo", "enabled": true, "path": "rules/elmundo.json" },
+      { "id": "elconfidencial", "enabled": true, "path": "rules/elconfidencial.json" },
+      { "id": "abc", "enabled": true, "path": "rules/abc.json" },
+      { "id": "lavanguardia", "enabled": true, "path": "rules/lavanguardia.json" }
+    ]
+  },
+  "host_permissions": [
+    "https://elpais.com/*",
+    "https://*.elpais.com/*",
+    "https://elmundo.es/*",
+    "https://*.elmundo.es/*",
+    "https://abc.es/*",
+    "https://*.abc.es/*",
+    "https://lavanguardia.com/*",
+    "https://*.lavanguardia.com/*",
+    "https://elconfidencial.com/*",
+    "https://*.elconfidencial.com/*"
+  ],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://elpais.com/*",
+        "https://*.elpais.com/*",
+        "https://elmundo.es/*",
+        "https://*.elmundo.es/*",
+        "https://abc.es/*",
+        "https://*.abc.es/*",
+        "https://lavanguardia.com/*",
+        "https://*.lavanguardia.com/*",
+        "https://elconfidencial.com/*",
+        "https://*.elconfidencial.com/*"
+      ],
+      "js": ["sites.js", "sanitizer.js"],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "https://elpais.com/*",
+        "https://*.elpais.com/*",
+        "https://elmundo.es/*",
+        "https://*.elmundo.es/*",
+        "https://abc.es/*",
+        "https://*.abc.es/*",
+        "https://lavanguardia.com/*",
+        "https://*.lavanguardia.com/*",
+        "https://elconfidencial.com/*",
+        "https://*.elconfidencial.com/*"
+      ],
+      "js": ["cleaner.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "icons": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "action": { "default_title": "Unlock prensa", "default_popup": "popup.html" }
+}

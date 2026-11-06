@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "piano.io",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame"
+      ],
+      "isUrlFilterCaseSensitive": false
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "uecdn.es/piano",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame"
+      ],
+      "isUrlFilterCaseSensitive": false
+    }
+  }
+]
